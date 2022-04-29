@@ -15,10 +15,11 @@ form {
 }
 
 h1 {
-  margin: 30px 0;
+  margin: 5px 0 10px;
   font-size: 48px;
-  color: #a69bc0;
+  color: rgb(170, 12, 44);
   font-weight: 900;
+  border-radius: 25px;
 }
 h2 {
   margin: -170px 275px 1px 0;
@@ -41,13 +42,16 @@ p {
   color: #ffffff;
 }
 .border-context {
-  border: thick double;
   max-width: 60%;
   margin: 0 auto;
   margin-bottom: 10px;
   padding-bottom: 15px;
-  background-color: rgb(87, 66, 165);
+  background-color: rgb(125, 108, 186);
   opacity: 0.9;
+  border: 0.7rem solid rgb(60, 46, 109);
+  outline: 0.7rem solid rgb(63, 45, 127);
+  box-shadow: 0 0 8rem 2rem rgb(123, 64, 142);
+  border-radius: 2px;
 }
 #city-typed {
   font-size: 44px;
@@ -77,7 +81,7 @@ p {
 a {
   text-decoration: none;
   cursor: pointer;
-  color: rgb(104, 19, 36);
+  color: rgb(170, 12, 44);
 }
 a:hover {
   text-decoration: underline;
