@@ -52,7 +52,6 @@ function displayFahrenheit(event) {
 let unitF = document.querySelector("#fahrenheit-link");
 unitF.addEventListener("click", displayFahrenheit);
 
-//adding new code in
 function newCityEntered(response) {
   document.querySelector("#city-typed").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = Math.round(
@@ -73,6 +72,13 @@ function newCityEntered(response) {
   document.querySelector("#low-temp").innerHTML = Math.round(
     response.data.main.temp_min
   );
+  let iconElement = document.querySelector("#current-temp-emoji");
+
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function searchNewCity(city) {
