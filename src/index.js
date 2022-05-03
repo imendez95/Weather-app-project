@@ -36,22 +36,6 @@ if (minutes < 10) {
 }
 currentTime.innerHTML = `${day}, ${month} ${date}, ${hours}:${minutes} `;
 
-function displayCelcius(event) {
-  event.preventDefault();
-  let clickC = document.querySelector("#current-temp");
-  clickC.innerHTML = "18°";
-}
-let unitC = document.querySelector("#celcius-link");
-unitC.addEventListener("click", displayCelcius);
-
-function displayFahrenheit(event) {
-  event.preventDefault();
-  let clickF = document.querySelector("#current-temp");
-  clickF.innerHTML = "64°";
-}
-let unitF = document.querySelector("#fahrenheit-link");
-unitF.addEventListener("click", displayFahrenheit);
-
 function newCityEntered(response) {
   document.querySelector("#city-typed").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = Math.round(
@@ -112,3 +96,19 @@ searchForm.addEventListener("submit", search);
 
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+function displayCelcius(event) {
+  event.preventDefault();
+  let clickC = document.querySelector("#current-temp");
+  clickC.innerHTML = "18°";
+}
+let unitC = document.querySelector("#celcius-link");
+unitC.addEventListener("click", displayCelcius);
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let clickF = document.querySelector("#current-temp");
+  clickF.innerHTML = "64°";
+}
+let unitF = document.querySelector("#fahrenheit-link");
+unitF.addEventListener("click", displayFahrenheit);
