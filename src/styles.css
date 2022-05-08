@@ -87,6 +87,7 @@ a {
 .units .active {
   color: #0e041a;
   text-decoration: underline;
+  font-size: 26px;
 }
 .units .active:hover {
   text-decoration: none;
