@@ -56,6 +56,8 @@ function newCityEntered(response) {
   document.querySelector("#low-temp").innerHTML = Math.round(
     response.data.main.temp_min
   );
+  fahrenheitTemp = Math.round(response.data.main.temp);
+
   let iconElement = document.querySelector("#current-temp-emoji");
 
   iconElement.setAttribute(
@@ -76,8 +78,6 @@ function search(event) {
   let newCity = document.querySelector("#new-city").value;
   searchNewCity(newCity);
 }
-let form = document.querySelector("#submit-city");
-form.addEventListener("click", search);
 
 function searchCurrentLocation(position) {
   let apiKey = "5eea2f588c4b48453c8e1f6c7b6f46fc";
@@ -91,24 +91,36 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchCurrentLocation);
 }
 
+function displayCelcius(event) {
+  event.preventDefault();
+  let clickC = document.querySelector("#current-temp");
+  unitF.classList.remove("active");
+  unitC.classList.add("active");
+  let celciusTemp = [(fahrenheitTemp - 32) * 5] / 9;
+  clickC.innerHTML = Math.round(celciusTemp);
+}
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let clickF = document.querySelector("#current-temp");
+  unitF.classList.add("active");
+  unitC.classList.remove("active");
+  clickF.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let unitC = document.querySelector("#celcius-link");
+unitC.addEventListener("click", displayCelcius);
+
+let unitF = document.querySelector("#fahrenheit-link");
+unitF.addEventListener("click", displayFahrenheit);
+
+let fahrenheitTemp = null;
+
+let form = document.querySelector("#submit-city");
+form.addEventListener("click", search);
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
-
-function displayCelcius(event) {
-  event.preventDefault();
-  let clickC = document.querySelector("#current-temp");
-  clickC.innerHTML = "18°";
-}
-let unitC = document.querySelector("#celcius-link");
-unitC.addEventListener("click", displayCelcius);
-
-function displayFahrenheit(event) {
-  event.preventDefault();
-  let clickF = document.querySelector("#current-temp");
-  clickF.innerHTML = "64°";
-}
-let unitF = document.querySelector("#fahrenheit-link");
-unitF.addEventListener("click", displayFahrenheit);

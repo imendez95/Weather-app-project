@@ -84,8 +84,12 @@ a {
   cursor: default;
   color: rgb(170, 12, 44);
 }
-a:hover {
+.units .active {
+  color: #0e041a;
   text-decoration: underline;
+}
+.units .active:hover {
+  text-decoration: none;
 }
 
 .current-temp-emoji {
