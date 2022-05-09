@@ -55,6 +55,7 @@ p {
 }
 #city-typed {
   font-size: 42px;
+  color: #d5b7b7;
 }
 .enter-city {
   margin: 0 0 15px;
@@ -123,7 +124,7 @@ a {
   font-size: 14px;
 }
 .card {
-  background-color: #ffffff;
+  background-color: #d5b7b7;
   transition: all 200ms ease-in-out;
   opacity: 0.8;
 }
