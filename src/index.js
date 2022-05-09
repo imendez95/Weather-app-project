@@ -71,7 +71,9 @@ function displayForecast(response) {
                 }@2x.png" alt="" width="46px"></div>
                 <div class="upcoming-temp"><strong>${Math.round(
                   forecastDay.temp.max
-                )}°</strong> / ${Math.round(forecastDay.temp.min)}°</div>
+                )}° <small>F</small></strong> / ${Math.round(
+          forecastDay.temp.min
+        )}° <small>F</small></div>
               </div>
             </div>
           
@@ -84,7 +86,6 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "5eea2f588c4b48453c8e1f6c7b6f46fc";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   console.log(apiUrl);
