@@ -36,6 +36,31 @@ if (minutes < 10) {
 }
 currentTime.innerHTML = `${day}, ${month} ${date}, ${hours}:${minutes} `;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#next-five-days");
+
+  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-2">
+              <div class="card" style="width: 6rem;">
+                ${day}
+                <div class="weather-emoji"> <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="46px"></div>
+                <div class="upcoming-temp"><strong>68°</strong> / 41°</div>
+              </div>
+            </div>
+          
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function newCityEntered(response) {
   document.querySelector("#city-typed").innerHTML = response.data.name;
   document.querySelector("#current-temp").innerHTML = Math.round(
@@ -121,6 +146,8 @@ form.addEventListener("click", search);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
+
+displayForecast();
 
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentLocation);
